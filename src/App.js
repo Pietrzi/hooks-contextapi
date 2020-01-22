@@ -3,12 +3,15 @@ import Basics from './components/Basics';
 import './App.css';
 import './components/TreeParent';
 import TreeParent from './components/TreeParent';
+import BookContextProvider from './contexts/BookContext';
 
 function App() {
   return (
     <div className="App">
       <Basics />
-      <TreeParent />
+      <BookContextProvider>
+        <TreeParent />
+      </BookContextProvider>
     </div>
   );
 }

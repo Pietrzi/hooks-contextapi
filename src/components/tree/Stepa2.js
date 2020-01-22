@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react'; 
+import { BookContext } from '../../contexts/BookContext';
 
-const Stepa1 = () => {
+const Stepa2 = () => {
+    const { books } = useContext(BookContext)
     return (
         <div>
             This is step a 2
+            {books.map(book => {
+                return (
+                    <div key={book.id}>
+                        <p>{book.name}</p>
+                    </div>
+                )
+            })}
         </div>
     )
 }
 
-export default Stepa1;
+export default Stepa2;

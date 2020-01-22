@@ -5,10 +5,10 @@ export const CitiesContext = createContext();
 
 const CitiesContextProvider = (props) => {
   const [cities, setCities] = useState([
-    {name: 'name of the wind', id: uuid, bridges: ''},
-    {name: 'the way of kings', id: uuid, bridges: ''},
-    {name: 'the final empire', id: uuid, bridges: ''},
-    {name: 'the hero of ages', id: uuid, bridges: ''}
+    {name: 'Wrocław', id: uuid, bridges: '100'},
+    {name: 'Gdynia', id: uuid, bridges: '0'},
+    {name: 'Konin', id: uuid, bridges: '6'},
+    {name: 'Pcim', id: uuid, bridges: '2'}
   ]);
   return (
     <CitiesContext.Provider value={{cities}}>
