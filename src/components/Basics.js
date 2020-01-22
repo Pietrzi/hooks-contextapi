@@ -13,13 +13,15 @@ const Basics = () => {
 
         const [weather, setWeather] = useState('');
 
-        const [atractions, setAtractions] = useState({
-            circus: false,
-            church: false,
-            library: false
-        })
+        // const [atractions, setAtractions] = useState({
+        //     circus: false,
+        //     church: false,
+        //     library: false
+        // })
 
         const [museums, setMuseums] = useState(0);
+
+        let [petsFriendly, setPetsFriendly] = useState(false);
 
 
     const addCity = name => {
@@ -34,16 +36,22 @@ const Basics = () => {
         setWeather(weather);
     }
 
-    const pickAtractions = (circus, church, library) => {
-        setAtractions({
-            circus: circus,
-            church: church,
-            library: library
-        })
-    }
+    // const pickAtractions = (circus, church, library) => {
+    //     setAtractions({
+    //         circus: circus,
+    //         church: church,
+    //         library: library
+    //     })
+    // }
 
     const museumsNumber = museums => {
         setMuseums(museums);
+    }
+
+    const pickPetsFriendly = e => {
+        const target = e.target;
+        const value = target.type === "checkbox" ? target.checked : target.value;
+        setPetsFriendly(petsFriendly = value)
     }
 
     return (
@@ -54,10 +62,11 @@ const Basics = () => {
             {description ? <p>{description}</p> : null }
             {weather ? <p>{weather}</p> : null }
             {museums ? <p>{museums}</p> : null }
-            {atractions.circus ? <span>{atractions.circus}</span> : null }
+            {/* {atractions.circus ? <span>{atractions.circus}</span> : null }
             {atractions.church ? <span>{atractions.church}</span> : null }
-            {atractions.library ? <span>{atractions.library}</span> : null }
-            <NewCity addCity={addCity} addDescription={addDescription} chooseWeather={chooseWeather} museumsNumber={museumsNumber} pickAtractions={pickAtractions} />
+            {atractions.library ? <span>{atractions.library}</span> : null } */}
+            <p>It is{petsFriendly ? null : <span> not</span>}</p>
+            <NewCity addCity={addCity} addDescription={addDescription} chooseWeather={chooseWeather} museumsNumber={museumsNumber} pickPetsFriendly={pickPetsFriendly} />
         </div>
     )
 }

@@ -1,16 +1,17 @@
 import React, { useState } from 'react'
 
-const NewCity = ({addCity, addDescription, chooseWeather, museumsNumber, pickAtractions}) => {
+const NewCity = ({addCity, addDescription, chooseWeather, museumsNumber, pickPetsFriendly}) => {
 
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [weather, setWeather] = useState('');
     const [museums, setMuseums] = useState('');
-    const [atractions, setAtractions] = useState({
-        circus: false,
-        church: false,
-        library: false
-    })
+    const [petsFriendly, setPetsFirendly] = useState(false);
+    // const [atractions, setAtractions] = useState({
+    //     circus: false,
+    //     church: false,
+    //     library: false
+    // })
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -18,10 +19,13 @@ const NewCity = ({addCity, addDescription, chooseWeather, museumsNumber, pickAtr
         addDescription(description);
         chooseWeather(weather);
         museumsNumber(museums);
-        pickAtractions(atractions.circus, atractions.church, atractions.library);
+        // pickAtractions(atractions.circus, atractions.church, atractions.library);
+        pickPetsFriendly(e);
         setName('');
         setDescription('')
       }
+
+      
 
     return (
         <div>
@@ -47,7 +51,7 @@ const NewCity = ({addCity, addDescription, chooseWeather, museumsNumber, pickAtr
                     <label>How many museums</label>
                     <input type="number" value={museums} onChange={e => setMuseums(e.target.value)}></input>
                 </div>
-                <div>
+                {/* <div>
                     <label>Is there Circus?</label>
                     <input name="Circus" type="checkbox" checked={atractions.circus} onChange={e => setAtractions(e.target.value)}></input>
                 </div>
@@ -58,6 +62,10 @@ const NewCity = ({addCity, addDescription, chooseWeather, museumsNumber, pickAtr
                 <div>
                     <label>Is there Library?</label>
                     <input name="Library" type="checkbox" checked={atractions.library} onChange={e => setAtractions(e.target.value)}></input>
+                </div> */}
+                <div>
+                    <label>Is pets friendly?</label>
+                    <input type="checkbox" name="petsFriendly" value={petsFriendly} onChange={e => setPetsFirendly(e.target.value)}></input>
                 </div>
                 <input type='submit' value='add' />
                 
